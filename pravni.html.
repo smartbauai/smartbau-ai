@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartBau AI – Pravni podaci</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">SmartBau AI</div>
+    <div class="badge">Pravni podaci (Impressum)</div>
+    <nav style="margin-left:auto;display:flex;gap:14px;">
+      <a href="index.html">Chat</a>
+      <a href="cijene.html">Cjenik</a>
+      <a href="postavke.html">Postavke</a>
+      <a href="generator.html">Generator</a>
+      <a href="privatnost.html">Privatnost</a>
+      <a href="pravni.html"><strong>Pravni</strong></a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h3 class="title">Pravni podaci</h3>
+      <p>Ova stranica sadrži obavezne pravne informacije (Impressum) u skladu s EU i DE zakonima.</p>
+      <ul>
+        <li><strong>Tvrtka:</strong> SmartBau AI</li>
+        <li><strong>Adresa:</strong> Musterstraße 10, 10115 Berlin, Njemačka</li>
+        <li><strong>Telefon:</strong> +49 30 123456</li>
+        <li><strong>Email:</strong> kontakt@smartbau.ai</li>
+        <li><strong>Odgovorna osoba:</strong> Ime i prezime</li>
+        <li><strong>Ust-ID:</strong> DE123456789</li>
+      </ul>
+      <p>SmartBau AI je digitalni asistent. Informacije služe samo u orijentacijske svrhe i ne predstavljaju pravni ili porezni savjet.</p>
+    </section>
+  </main>
+
+  <footer>© SmartBau AI – demo</footer>
+</body>
+</html>
