@@ -1,45 +1,51 @@
+feat(web): dodan style.css (globalni stil)
 <!doctype html>
 <html lang="hr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <title>SmartBau AI — Demo</title>
-  <style>
-    body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:24px auto;padding:0 16px}
-    header,footer{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding:10px 0}
-    footer{border-top:1px solid #ddd;margin-top:24px}
-    h1{margin:12px 0}
-    .muted{color:#6b7280}
-    .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;margin:16px 0}
-    nav a{margin-left:12px;text-decoration:none;color:#0366d6}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartBau AI — Chat</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <strong>SmartBau AI</strong>
-    <nav>
-      <a href="./index.html">Početna</a>
-      <a href="./privacy.html">Privatnost</a>
-      <a href="./legal.html">Pravno</a>
-    </nav>
-  </header>
+<header>
+  <div class="brand">🏗️ SmartBau AI</div>
+  <div class="badge">DE/EU • Legal, dozvole & dokumenti 24/7</div>
+  <nav style="margin-left:auto;display:flex;gap:14px;">
+    <a href="index.html">Chat</a>
+    <a href="cijene.html">Cjenik</a>
+    <a href="postavke.html">Postavke</a>
+    <a href="generator.html">Generator</a>
+    <a href="privatnost.html">Privatnost</a>
+    <a href="pravni.html">Pravni</a>
+  </nav>
+</header>
 
-  <main>
-    <h1>SmartBau AI — asistent za DE/EU</h1>
-    <p>3 pitanja <b>BESPLATNO</b> · građevina · birokracija · porezi (osnovno)</p>
-    <p class="muted">Kontakt: <a href="mailto:smartbauplatform.ai@gmail.com">smartbauplatform.ai@gmail.com</a></p>
+<main class="wrap grid-3">
+  <section class="card" style="grid-column:1 / -1">
+    <div class="title"><h3>Chat</h3><span class="pill">Asistent</span></div>
 
-    <div class="card">
-      <h3>Obavijest</h3>
-      <p>Ovo je demo verzija. Odgovori su informativni i ne predstavljaju pravni ili službeni savjet.</p>
+    <div class="bubble">Koje su dozvole potrebne za gradilište u Berlinu?</div>
+
+    <div class="chipbar">
+      <div class="chip">📄 Dokumenti</div>
+      <div class="chip">🛂 Dozvole</div>
+      <div class="chip">📊 Kalkulatori</div>
     </div>
-  </main>
 
-  <footer>
-    <span>© SmartBau AI</span>
-    <span class="muted">Berlin · brand-only</span>
-  </footer>
+    <div class="input">
+      <input placeholder="Upišite pitanje… npr. Gewerbe prijava u Berlinu">
+      <button>Pošalji</button>
+    </div>
+
+    <div class="meter">Iskorišteno: 13/100 • Preostalo: 87</div>
+
+    <div class="disclaimer">
+      ⚠️ SmartBau AI daje informativne odgovore i ne predstavlja pravni ili porezni savjet.
+    </div>
+  </section>
+</main>
+
+<footer>© SmartBau AI — demo</footer>
 </body>
 </html>
-https://smartbauai.github.io/smartbau-ai/
