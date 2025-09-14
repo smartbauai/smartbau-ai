@@ -1,47 +1,21 @@
-:root{
-  --bg:#f6f7fb;
-  --card:#ffffff;
-  --text:#0e1726;
-  --muted:#6b7280;
-  --primary:#2563eb;
-  --primary-ghost:#e6efff;
-  --border:#e5e7eb;
+
+:root{--sb-bg:#f7f8fa;--sb-card:#fff;--sb-text:#122033;--sb-accent:#0a5cff;--sb-line:#e8ecf3}
+html,body{height:100%}
+body{margin:0;display:grid;grid-template-columns:240px 1fr;background:var(--sb-bg);color:var(--sb-text);font:15px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.sb-sidebar{background:#0e1b2b;color:#cfe0ff;display:flex;flex-direction:column;gap:16px;padding:20px 16px}
+.sb-brand{display:flex;align-items:center;gap:10px}.sb-brand .logo{font-size:22px}.sb-brand .name{font-weight:800}
+.sb-nav a{display:block;padding:10px 12px;border-radius:8px;color:#cfe0ff;text-decoration:none;margin:4px 0}
+.sb-nav a:hover,.sb-nav a.active{background:#17314f;color:#fff}
+.sb-main{padding:28px}
+.card{background:var(--sb-card);border:1px solid var(--sb-line);border-radius:14px;padding:16px}
+.btn{border:1px solid var(--sb-accent);background:#f5f9ff;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--sb-accent);color:#fff}
+.input{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--sb-line);border-radius:10px}
+.meta{color:#5b6b86;font-size:13px}
+@media (max-width:900px){
+  body{grid-template-columns:1fr}
+  .sb-sidebar{flex-direction:row;align-items:center;gap:8px;padding:10px 12px;position:sticky;top:0;z-index:10}
+  .sb-nav{display:flex;gap:6px}
+  .sb-nav a{margin:0}
+  .sb-main{padding:16px}
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
-  font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
-header{display:flex;gap:12px;align-items:center;padding:14px 20px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1}
-.brand{font-weight:800}
-.badge{background:var(--primary-ghost);color:var(--primary);padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
-.wrap{max-width:1180px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
-.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:0 1px 2px rgba(10,20,40,.04)}
-.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.title h3{margin:0}
-.pill{padding:3px 8px;border-radius:999px;background:#f1f5f9;color:#0f172a;font-size:12px}
-.btn{background:var(--primary);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
-.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary)}
-footer{max-width:1180px;margin:20px auto 40px; padding:0 16px;color:var(--muted);font-size:13px}
-a{color:var(--primary);text-decoration:none}
-a:hover{text-decoration:underline}
-/* Chat */
-.chipbar{display:flex;gap:8px;margin:8px 0 12px}
-.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;font-weight:600}
-.bubble{background:var(--primary);color:#fff;padding:12px 14px;border-radius:12px 12px 12px 6px;max-width:85%;margin:10px 0}
-.input{display:flex;gap:8px;margin-top:12px}
-.input input{flex:1;border:1px solid var(--border);border-radius:12px;padding:12px 14px}
-.input button{border:none;border-radius:12px;padding:12px 16px;background:var(--primary);color:#fff;font-weight:700}
-.meter{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-top:10px}
-.disclaimer{border-top:1px dashed var(--border);margin-top:12px;padding-top:10px;color:#6b7280;font-size:13px}
-/* Pricing */
-.grid-3{display:grid;gap:12px;grid-template-columns:1fr}
-.plan{border:1px solid var(--border);border-radius:12px;padding:14px}
-.plan h4{margin:0 0 6px}
-.price{font-size:24px;font-weight:800}
-.most{color:#065f46;background:#ecfdf5;border:1px solid #a7f3d0}
-.plan ul{margin:10px 0 12px;padding-left:20px}
-/* Settings */
-.field{margin-bottom:12px}
-.field label{display:block;font-weight:700;margin-bottom:4px}
-.field input,.field select{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-.toggle{display:flex;gap:12px;align-items:center}
-@media (min-width:980px){.grid-3{grid-template-columns:repeat(3,1fr)}}
