@@ -1,36 +1,25 @@
-<!doctype html>
-<html lang="hr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SmartBau AI — Generator ponude</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-</head>
 <body>
-<header>
-  <div class="brand">🏗️ SmartBau AI</div>
-  <div class="badge">PDF generator — bez AI</div>
-  <nav style="margin-left:auto;display:flex;gap:14px;">
-    <a href="index.html">Chat</a>
-    <a href="cijene.html">Cjenik</a>
-    <a href="postavke.html">Postavke</a>
-    <a href="generator.html"><strong>Generator</strong></a>
-    <a href="privatnost.html">Privatnost</a>
-    <a href="pravni.html">Pravni</a>
-  </nav>
-</header>
+  <aside class="sb-sidebar">
+    <div class="sb-brand"><div class="logo">🏗️</div><div class="name">SMARTBAU AI</div></div>
+    <nav class="sb-nav">
+      <a href="index.html">Chat</a>
+      <a href="postavke.html">Settings</a>
+      <a href="cijene.html">Pricing</a>
+      <a href="pravni.html">Legal</a>
+    </nav>
+  </aside>
 
-<main class="wrap">
-  <section class="card">
-    <div class="title"><h3>Generator ponude (PDF)</h3><span class="pill">MVP</span></div>
+  <main class="sb-main">
+    <section class="card">
+      <h2>Generator</h2>
+      <p>Ovdje će ići alat za generisanje (npr. troškovnika ili BoQ).</p>
+    </section>
+  </main>
 
-    <div class="field"><label>Izvođač (firma)</label><input id="izvodjac" placeholder="SmartBau d.o.o."></div>
-    <div class="field"><label>Naručitelj (klijent)</label><input id="narucilac" placeholder="Muster GmbH"></div>
-    <div class="field"><label>Lokacija radova</label><input id="lokacija" placeholder="Berlin, Prenzlauer Allee 10"></div>
-    <div class="field"><label>Datum</label><input id="datum" type="date"></div>
-    <div class="field"><label>Opis radova</label><input id="opis" placeholder="Zidarski radovi, žbukanje…"></div>
-    <div class="field"><label>Procjena cijene (€)</label><input id="cijena" type="number" placeholder="15000"></div>
-    <div class="field"><label>Napomena (opcionalno)</label><input id="napomena" placeholder="Rok izvođenja 20 radnih dana."></div>
-
-    <button class="btn" onclick="genPDF()" style="margin-top:8px">
+  <script>
+    (()=>{
+      const here = location.pathname.split('/').pop();
+      document.querySelectorAll('.sb-nav a').forEach(a=>{ if(a.getAttribute('href')===here) a.classList.add('active'); });
+    })();
+  </script>
+</body>
