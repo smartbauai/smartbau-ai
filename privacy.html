@@ -1,15 +1,26 @@
 
-    <!doctype html>
-<html lang="hr">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Privatnost — SmartBau AI</title>
-</head>
-<body>
-  <h1>Politika privatnosti (test)</h1>
-  <p>Ova demo stranica ne prikuplja osobne podatke, ne koristi kolačiće niti alate za praćenje.</p>
-  <p>Kontakt: <a href="mailto:smartbauplatform.ai+privacy@gmail.com">smartbauplatform.ai+privacy@gmail.com</a></p>
-  <p><a href="./index.html">← Povratak na početnu</a></p>
+ <body>
+  <aside class="sb-sidebar">
+    <div class="sb-brand"><div class="logo">🏗️</div><div class="name">SMARTBAU AI</div></div>
+    <nav class="sb-nav">
+      <a href="index.html">Chat</a>
+      <a href="postavke.html">Settings</a>
+      <a href="cijene.html">Pricing</a>
+      <a href="pravni.html">Legal</a>
+    </nav>
+  </aside>
+
+  <main class="sb-main">
+    <section class="card">
+      <h2>Politika privatnosti</h2>
+      <p>Ovdje dodati tekst o zaštiti podataka i GDPR napomene.</p>
+    </section>
+  </main>
+
+  <script>
+    (()=>{
+      const here = location.pathname.split('/').pop();
+      document.querySelectorAll('.sb-nav a').forEach(a=>{ if(a.getAttribute('href')===here) a.classList.add('active'); });
+    })();
+  </script>
 </body>
-</html>
