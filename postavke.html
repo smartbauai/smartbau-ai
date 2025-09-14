@@ -1,63 +1,25 @@
-<!doctype html>
-<html lang="hr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SmartBau AI — Postavke</title>
-<link rel="stylesheet" href="style.css">
-</head>
 <body>
-<header>
-  <div class="brand">🏗️ SmartBau AI</div>
-  <div class="badge">Lokalne postavke</div>
-  <nav style="margin-left:auto;display:flex;gap:14px;">
-    <a href="index.html">Chat</a>
-    <a href="cijene.html">Cjenik</a>
-    <a href="postavke.html"><strong>Postavke</strong></a>
-    <a href="generator.html">Generator</a>
-    <a href="privatnost.html">Privatnost</a>
-    <a href="pravni.html">Pravni</a>
-  </nav>
-</header>
+  <aside class="sb-sidebar">
+    <div class="sb-brand"><div class="logo">🏗️</div><div class="name">SMARTBAU AI</div></div>
+    <nav class="sb-nav">
+      <a href="index.html">Chat</a>
+      <a href="postavke.html">Settings</a>
+      <a href="cijene.html">Pricing</a>
+      <a href="pravni.html">Legal</a>
+    </nav>
+  </aside>
 
-<main class="wrap grid-3">
-  <section class="card">
-    <div class="title"><h3>Postavke</h3><span class="pill">Lokalno</span></div>
+  <main class="sb-main">
+    <section class="card">
+      <h2>Postavke</h2>
+      <p>Ovdje možeš podesiti plan, resetovati broj upita ili promijeniti jezik interfejsa.</p>
+    </section>
+  </main>
 
-    <div class="field">
-      <label>Jezik</label>
-      <select>
-        <option>Hrvatski / Srpski</option>
-        <option>Deutsch</option>
-        <option>English</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Regija</label>
-      <select>
-        <option>Njemačka (DE)</option>
-        <option>EU</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Profil (email)</label>
-      <input placeholder="you@example.com">
-    </div>
-
-    <div class="field toggle">
-      <label>Tema</label>
-      <div>
-        <label><input type="radio" name="t" checked> Svijetla</label>
-        <label style="margin-left:12px"><input type="radio" name="t"> Tamna</label>
-      </div>
-    </div>
-
-    <button class="btn" style="width:100%;margin-top:8px">Spremi promjene</button>
-  </section>
-</main>
-
-<footer>© SmartBau AI — demo</footer>
+  <script>
+    (()=>{
+      const here = location.pathname.split('/').pop();
+      document.querySelectorAll('.sb-nav a').forEach(a=>{ if(a.getAttribute('href')===here) a.classList.add('active'); });
+    })();
+  </script>
 </body>
-</html>
