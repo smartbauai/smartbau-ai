@@ -1,51 +1,60 @@
-feat(web): dodan style.css (globalni stil)
-<!doctype html>
-<html lang="hr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SmartBau AI — Chat</title>
-<link rel="stylesheet" href="style.css">
-</head>
 <body>
-<header>
-  <div class="brand">🏗️ SmartBau AI</div>
-  <div class="badge">DE/EU • Legal, dozvole & dokumenti 24/7</div>
-  <nav style="margin-left:auto;display:flex;gap:14px;">
-    <a href="index.html">Chat</a>
-    <a href="cijene.html">Cjenik</a>
-    <a href="postavke.html">Postavke</a>
-    <a href="generator.html">Generator</a>
-    <a href="privatnost.html">Privatnost</a>
-    <a href="pravni.html">Pravni</a>
-  </nav>
-</header>
+  <aside class="sb-sidebar">
+    <div class="sb-brand"><div class="logo">🏗️</div><div class="name">SMARTBAU AI</div></div>
+    <nav class="sb-nav">
+      <a href="index.html">Chat</a>
+      <a href="postavke.html">Settings</a>
+      <a href="cijene.html">Pricing</a>
+      <a href="pravni.html">Legal</a>
+    </nav>
+  </aside>
 
-<main class="wrap grid-3">
-  <section class="card" style="grid-column:1 / -1">
-    <div class="title"><h3>Chat</h3><span class="pill">Asistent</span></div>
+  <main class="sb-main">
+    <section class="card">
+      <h2>Chat</h2>
+      <div class="meta">Plan: <b id="plan"></b> · Korišteno: <b id="used">0</b>/<b id="limit">0</b> · Preostalo: <b id="left">0</b></div>
+      <div style="display:flex;gap:10px;margin:12px 0;">
+        <input id="q" class="input" placeholder="Upišite pitanje…" />
+        <button class="btn primary" onclick="send()">Pošalji</button>
+      </div>
+      <pre id="answer" class="card" style="white-space:pre-wrap;background:#fff"></pre>
+    </section>
+  </main>
 
-    <div class="bubble">Koje su dozvole potrebne za gradilište u Berlinu?</div>
-
-    <div class="chipbar">
-      <div class="chip">📄 Dokumenti</div>
-      <div class="chip">🛂 Dozvole</div>
-      <div class="chip">📊 Kalkulatori</div>
-    </div>
-
-    <div class="input">
-      <input placeholder="Upišite pitanje… npr. Gewerbe prijava u Berlinu">
-      <button>Pošalji</button>
-    </div>
-
-    <div class="meter">Iskorišteno: 13/100 • Preostalo: 87</div>
-
-    <div class="disclaimer">
-      ⚠️ SmartBau AI daje informativne odgovore i ne predstavlja pravni ili porezni savjet.
-    </div>
-  </section>
-</main>
-
-<footer>© SmartBau AI — demo</footer>
+  <script>
+    const BACKEND_URL = "https://TVOJ-ENDPOINT/api/chat"; 
+    async function send(){
+      const PLAN = localStorage.getItem('sb_plan') || 'FREE';
+      const LIMITS = { FREE:5, STANDARD:100, PREMIUM:200 };
+      let used = +(localStorage.getItem('sb_used')||0);
+      const limit = LIMITS[PLAN]||5;
+      if(used>=limit){ document.getElementById('answer').textContent="Limit potrošen. Nadogradi plan ili Top-up 100."; return;}
+      const q = (document.getElementById('q').value||"").trim();
+      if(!q){ document.getElementById('answer').textContent="Upišite pitanje."; return;}
+      document.getElementById('answer').textContent="⏳ Obrada…";
+      try{
+        const r = await fetch(BACKEND_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({user:q})});
+        if(!r.ok) throw new Error();
+        const data = await r.json();
+        document.getElementById('answer').textContent = data.reply || "Nema odgovora.";
+        used++; localStorage.setItem('sb_used', used);
+      }catch(e){ document.getElementById('answer').textContent="Greška u mreži / serveru."; }
+      finally{
+        document.getElementById('plan').textContent = PLAN;
+        document.getElementById('used').textContent = used;
+        document.getElementById('limit').textContent = limit;
+        document.getElementById('left').textContent = Math.max(0, limit - used);
+      }
+    }
+    (()=>{
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.sb-nav a').forEach(a=>{ if(a.getAttribute('href')===here) a.classList.add('active'); });
+      const PLAN = localStorage.getItem('sb_plan') || 'FREE';
+      const limit = ({FREE:5,STANDARD:100,PREMIUM:200}[PLAN])||5;
+      document.getElementById('plan').textContent = PLAN;
+      document.getElementById('used').textContent = localStorage.getItem('sb_used')||0;
+      document.getElementById('limit').textContent = limit;
+      document.getElementById('left').textContent = Math.max(0, limit - (+(localStorage.getItem('sb_used')||0)));
+    })();
+  </script>
 </body>
-</html>
